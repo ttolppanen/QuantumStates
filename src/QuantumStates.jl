@@ -1,5 +1,9 @@
 module QuantumStates
 
-greet() = print("Hello World!")
+    #d : dimension; e.g. with qubits d = 2
+    #L : number of systems;
 
-end # module
+    function onezero(d::Integer, L::Integer)
+        
+    end
+end
