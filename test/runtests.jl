@@ -23,13 +23,13 @@ end
 end
 
 function testtypes(state)
-    @test typeof(state) <: AbstractSparseArray
+    @test isa(state, AbstractSparseArray)
     @test typeof(state) == typeof(complex(state))
 end
 @testset "Types" begin
     d = 4; L = 4
-    testtypes(zeroone(d, L))
-    testtypes(onezero(d, L))
-    testtypes(allone(d, L))
-    testtypes(singleone(d, L, 1))
+    @testset "zeroone" begin testtypes(zeroone(d, L)) end
+    @testset "onezero" begin testtypes(onezero(d, L)) end
+    @testset "allone" begin testtypes(allone(d, L)) end
+    @testset "singleone" begin testtypes(singleone(d, L, 1)) end
 end
