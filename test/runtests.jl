@@ -23,7 +23,7 @@ end
 end
 
 function testtypes(state)
-    @test isa(state, AbstractSparseArray)
+    @test isa(state, AbstractSparseArray{<:Number})
     @test typeof(state) == typeof(complex(state))
 end
 @testset "Types" begin
