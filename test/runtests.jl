@@ -2,9 +2,15 @@ using QuantumStates, Test
 using SparseArrays
 using LinearAlgebra
 
-@test QuantumStates.zerostate(3)' * QuantumStates.onestate(3) == 0.0
-@test zeroone(2, 2)' * onezero(2, 2) == 0.0
-@test onezero(3, 4)' * allone(3, 4) == 0.0
+include("MPStests.jl")
+
+@testset "Complete Space" begin
+    
+@testset "Orthogonality" begin
+    @test QuantumStates.zerostate(3)' * QuantumStates.onestate(3) == 0.0
+    @test zeroone(2, 2)' * onezero(2, 2) == 0.0
+    @test onezero(3, 4)' * allone(3, 4) == 0.0
+end
 
 @testset "Normalization" begin
     d = 5; L = 5
@@ -33,3 +39,5 @@ end
     @testset "allone" begin testtypes(allone(d, L)) end
     @testset "singleone" begin testtypes(singleone(d, L, 1)) end
 end
+
+end #testset
