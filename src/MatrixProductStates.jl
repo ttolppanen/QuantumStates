@@ -21,7 +21,7 @@ function onezeromps(indices::Vector{Index{Int64}})
 end
 function onezeromps(d::Integer, L::Integer)
      indices = siteinds("Boson", L; dim = d)
-     return onezeromps(indices), indices
+     return onezeromps(indices)
 end
 
 function zeroonemps(indices::Vector{Index{Int64}})
@@ -32,7 +32,7 @@ function zeroonemps(indices::Vector{Index{Int64}})
 end
 function zeroonemps(d::Integer, L::Integer)
      indices = siteinds("Boson", L; dim = d)
-     return zeroonemps(indices), indices
+     return zeroonemps(indices)
 end
 function allonemps(indices::Vector{Index{Int64}})
     d = dim(indices[1])
@@ -42,7 +42,7 @@ function allonemps(indices::Vector{Index{Int64}})
 end
 function allonemps(d::Integer, L::Integer)
      indices = siteinds("Boson", L; dim = d)
-     return allonemps(indices), indices
+     return allonemps(indices)
 end
 
 function singleonemps(indices::Vector{Index{Int64}}, i::Integer)
@@ -53,5 +53,5 @@ function singleonemps(indices::Vector{Index{Int64}}, i::Integer)
 end
 function singleonemps(d::Integer, L::Integer, i::Integer)
      indices = siteinds("Boson", L; dim = d)
-     return singleonemps(indices, i), indices
+     return singleonemps(indices, i)
 end

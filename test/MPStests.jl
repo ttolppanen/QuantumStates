@@ -12,18 +12,18 @@ end
 
 @testset "Normalization" begin
     d = 4; L = 5
-    @test norm(zeroonemps(d, L)[1]) == 1.0
-    @test norm(onezeromps(d, L)[1]) == 1.0
-    @test norm(allonemps(d, L)[1]) == 1.0
-    @test norm(singleonemps(d, L, 2)[1]) == 1.0
+    @test norm(zeroonemps(d, L)) == 1.0
+    @test norm(onezeromps(d, L)) == 1.0
+    @test norm(allonemps(d, L)) == 1.0
+    @test norm(singleonemps(d, L, 2)) == 1.0
 end
 
 @testset "Types" begin
     d = 3; L = 2
-    @test isa(zeroonemps(d, L)[1], MPS)
-    @test isa(onezeromps(d, L)[1], MPS)
-    @test isa(allonemps(d, L)[1], MPS)
-    @test isa(singleonemps(d, L, 2)[1], MPS)
+    @test isa(zeroonemps(d, L), MPS)
+    @test isa(onezeromps(d, L), MPS)
+    @test isa(allonemps(d, L), MPS)
+    @test isa(singleonemps(d, L, 2), MPS)
 end
 
 end #testset
