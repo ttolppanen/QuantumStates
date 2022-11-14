@@ -1,4 +1,4 @@
 using QuantumStates, Test
 
-include("CPStests.jl")
+include("CSStests.jl")
 include("MPStests.jl")
