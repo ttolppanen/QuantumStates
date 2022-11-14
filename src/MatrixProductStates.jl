@@ -1,6 +1,6 @@
 using ITensors
 
-include("CompleteSpaceStates.jl")
+#include("CompleteSpaceStates.jl")
 
 export onezeromps
 export zeroonemps
