@@ -6,6 +6,7 @@ export onezeromps
 export zeroonemps
 export allonemps
 export singleonemps
+export bosonstackmps
 
 #NOTE: MPS do not want to handle sparse vectors
 
@@ -54,4 +55,15 @@ end
 function singleonemps(d::Integer, L::Integer, i::Integer)
      indices = siteinds("Boson", L; dim = d)
      return singleonemps(indices, i)
+end
+
+function bosonstackmps(indices::Vector{Index{Int64}}, N::Integer, i::Integer)
+    d = dim(indices[1])
+    L = length(indices)
+    stateVector = Vector(bosonstack(N, L, i; d))
+    return MPS(stateVector, indices)
+end
+function bosonstackmps(N::Integer, L::Integer, i::Integer; d::Integer = N + 1)
+     indices = siteinds("Boson", L; dim = d)
+     return bosonstackmps(indices, N, i)
 end

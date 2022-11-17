@@ -4,6 +4,7 @@ export onezero
 export zeroone
 export allone
 export singleone
+export bosonstack
 
 #d : dimension; e.g. with qubits d = 2
 #L : number of systems;
@@ -45,5 +46,15 @@ function singleone(d::Integer, L::Integer, i::Integer)
     one = onestate(d)
     sites = [zero for _ in 1:L]
     sites[i] = one
+    return kron(sites...)
+end
+
+function bosonstack(N::Integer, L::Integer, i::Integer; d::Integer = N + 1)
+    d <= N ? throw(ArgumentError("d <= N")) : nothing
+    zero = zerostate(d)
+    stack = complex(spzeros(d))
+    stack[N + 1] = 1.0
+    sites = [zero for _ in 1:L]
+    sites[i] = stack
     return kron(sites...)
 end
