@@ -3,6 +3,7 @@ using SparseArrays
 export onezero
 export zeroone
 export allone
+export allzero
 export singleone
 export bosonstack
 
@@ -38,6 +39,12 @@ end
 function allone(d::Integer, L::Integer)
     one = onestate(d)
     sites = [one for _ in 1:L]
+    return kron(sites...)
+end
+
+function allzero(d::Integer, L::Integer)
+    zero = zerostate(d)
+    sites = [zero for _ in 1:L]
     return kron(sites...)
 end
 

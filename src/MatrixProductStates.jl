@@ -5,6 +5,7 @@ using ITensors
 export onezeromps
 export zeroonemps
 export allonemps
+export allzeromps
 export singleonemps
 export bosonstackmps
 
@@ -35,6 +36,7 @@ function zeroonemps(d::Integer, L::Integer)
      indices = siteinds("Boson", L; dim = d)
      return zeroonemps(indices)
 end
+
 function allonemps(indices::Vector{Index{Int64}})
     d = dim(indices[1])
     L = length(indices)
@@ -44,6 +46,17 @@ end
 function allonemps(d::Integer, L::Integer)
      indices = siteinds("Boson", L; dim = d)
      return allonemps(indices)
+end
+
+function allzeromps(indices::Vector{Index{Int64}})
+    d = dim(indices[1])
+    L = length(indices)
+    stateVector = Vector(allzero(d, L))
+    return MPS(stateVector, indices)
+end
+function allzeromps(d::Integer, L::Integer)
+     indices = siteinds("Boson", L; dim = d)
+     return allzeromps(indices)
 end
 
 function singleonemps(indices::Vector{Index{Int64}}, i::Integer)

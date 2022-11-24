@@ -15,6 +15,7 @@ end
     @test norm(zeroone(d, L)) == 1.0
     @test norm(onezero(d, L)) == 1.0
     @test norm(allone(d, L)) == 1.0
+    @test norm(allzero(d, L)) == 1.0
     @test norm(singleone(d, L, 2)) == 1.0
     @test norm(bosonstack(3, L, 1)) == 1.0
 end
@@ -24,6 +25,7 @@ end
     @test length(zeroone(d, L)) == d^L
     @test length(onezero(d, L)) == d^L
     @test length(allone(d, L)) == d^L
+    @test length(allzero(d, L)) == d^L
     @test length(singleone(d, L, 1)) == d^L
     @test length(bosonstack(d - 1, L, 1)) == d^L
 end
@@ -37,6 +39,7 @@ end
     @testset "zeroone" begin testtypes(zeroone(d, L)) end
     @testset "onezero" begin testtypes(onezero(d, L)) end
     @testset "allone" begin testtypes(allone(d, L)) end
+    @testset "allzero" begin testtypes(allzero(d, L)) end
     @testset "singleone" begin testtypes(singleone(d, L, 1)) end
     @testset "bosonstack" begin testtypes(bosonstack(d - 1, L, 1)) end
 end

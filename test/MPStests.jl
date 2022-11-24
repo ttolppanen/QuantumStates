@@ -16,6 +16,7 @@ end
     @test norm(zeroonemps(d, L)) == 1.0
     @test norm(onezeromps(d, L)) == 1.0
     @test norm(allonemps(d, L)) == 1.0
+    @test norm(allzeromps(d, L)) == 1.0
     @test norm(singleonemps(d, L, 2)) == 1.0
     @test norm(bosonstackmps(d - 1, L, 2)) == 1.0
 end
@@ -25,6 +26,7 @@ end
     @test isa(zeroonemps(d, L), MPS)
     @test isa(onezeromps(d, L), MPS)
     @test isa(allonemps(d, L), MPS)
+    @test isa(allzeromps(d, L), MPS)
     @test isa(singleonemps(d, L, 2), MPS)
     @test isa(bosonstackmps(d - 1, L, 1), MPS)
 end
