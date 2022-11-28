@@ -1,6 +1,6 @@
-using ITensors
+# using ITensors
 
-#include("CompleteSpaceStates.jl")
+# include("CompleteSpaceStates.jl")
 
 export onezeromps
 export zeroonemps
@@ -9,11 +9,11 @@ export allzeromps
 export singleonemps
 export bosonstackmps
 
-#NOTE: MPS do not want to handle sparse vectors
+# NOTE: MPS do not want to handle sparse vectors
 
-#d : dimension; e.g. with qubits d = 2
-#L : number of systems;
-#indices : physical indices; refering to the physical indices of the MPS
+# d : dimension; e.g. with qubits d = 2
+# L : number of systems;
+# indices : physical indices; refering to the physical indices of the MPS
 
 function onezeromps(indices::Vector{Index{Int64}})
     d = dim(indices[1])

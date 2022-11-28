@@ -1,5 +1,5 @@
-#using LinearAlgebra
-#using SparseArrays
+# using LinearAlgebra
+# using SparseArrays
 
 @testset "Complete Space" begin
     
@@ -48,4 +48,4 @@ end
     @test_throws ArgumentError bosonstack(3, 3, 1; d=2)
 end
 
-end #testset
+end # testset

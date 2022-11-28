@@ -1,4 +1,4 @@
-#using ITensors
+# using ITensors
 
 @testset "Matrix Product States" begin
     
@@ -35,4 +35,4 @@ end
     @test_throws ArgumentError bosonstackmps(3, 3, 1; d = 3)
 end
 
-end #testset
+end # testset

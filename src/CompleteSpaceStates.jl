@@ -1,4 +1,4 @@
-using SparseArrays
+# using SparseArrays
 
 export onezero
 export zeroone
@@ -7,8 +7,8 @@ export allzero
 export singleone
 export bosonstack
 
-#d : dimension; e.g. with qubits d = 2
-#L : number of systems;
+# d : dimension; e.g. with qubits d = 2
+# L : number of systems;
 
 function zerostate(d::Integer)
     out = spzeros(d)
@@ -25,14 +25,14 @@ end
 function onezero(d::Integer, L::Integer)
     zero = zerostate(d)
     one = onestate(d)
-    sites = [i % 2 == 1 ? one : zero for i in 1:L] #Makes an array something like this [[1, 0], [0, 1], [1, 0]...]
+    sites = [i % 2 == 1 ? one : zero for i in 1:L] # Makes an array something like this [[1, 0], [0, 1], [1, 0]...]
     return kron(sites...)
 end
 
 function zeroone(d::Integer, L::Integer)
     zero = zerostate(d)
     one = onestate(d)
-    sites = [i % 2 == 1 ? zero : one for i in 1:L] #Makes an array something like this [[1, 0], [0, 1], [1, 0]...]
+    sites = [i % 2 == 1 ? zero : one for i in 1:L] # Makes an array something like this [[1, 0], [0, 1], [1, 0]...]
     return kron(sites...)
 end
 
