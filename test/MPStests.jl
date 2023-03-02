@@ -35,4 +35,12 @@ end
     @test_throws ArgumentError bosonstackmps(3, 3, 1; d = 3)
 end
 
+@testset "MPS to Array" begin
+    d = 4; L = 4
+    @test zeroone(d, L) == mps_to_array(zeroonemps(d, L))
+    @test onezero(d, L) == mps_to_array(onezeromps(d, L))
+    @test allone(d, L) == mps_to_array(allonemps(d, L))
+    @test singleone(d, L, L - 1) == mps_to_array(singleonemps(d, L, L - 1))
+end
+
 end # testset

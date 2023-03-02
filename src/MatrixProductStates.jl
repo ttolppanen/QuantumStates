@@ -8,12 +8,18 @@ export allonemps
 export allzeromps
 export singleonemps
 export bosonstackmps
+export mps_to_array
 
 # NOTE: MPS do not want to handle sparse vectors
 
 # d : dimension; e.g. with qubits d = 2
 # L : number of systems;
 # indices : physical indices; refering to the physical indices of the MPS
+
+function mps_to_array(state::MPS)
+    out = prod(state) * combiner(siteinds(state))
+    return Array(out, inds(out)...)
+end
 
 function onezeromps(indices::Vector{Index{Int64}})
     d = dim(indices[1])
