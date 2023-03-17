@@ -22,10 +22,9 @@ function mps_to_array(state::MPS)
 end
 
 function onezeromps(indices::Vector{Index{Int64}})
-    d = dim(indices[1])
     L = length(indices)
-    stateVector = Vector(onezero(d, L))
-    return MPS(stateVector, indices)
+    state = [isodd(i) ? "0" : "1" for i=1:L]
+    return MPS(indices, state)
 end
 function onezeromps(d::Integer, L::Integer)
      indices = siteinds("Boson", L; dim = d)
@@ -33,10 +32,9 @@ function onezeromps(d::Integer, L::Integer)
 end
 
 function zeroonemps(indices::Vector{Index{Int64}})
-    d = dim(indices[1])
     L = length(indices)
-    stateVector = Vector(zeroone(d, L))
-    return MPS(stateVector, indices)
+    state = [isodd(i) ? "1" : "0" for i=1:L]
+    return MPS(indices, state)
 end
 function zeroonemps(d::Integer, L::Integer)
      indices = siteinds("Boson", L; dim = d)
@@ -44,10 +42,9 @@ function zeroonemps(d::Integer, L::Integer)
 end
 
 function allonemps(indices::Vector{Index{Int64}})
-    d = dim(indices[1])
     L = length(indices)
-    stateVector = Vector(allone(d, L))
-    return MPS(stateVector, indices)
+    state = ["1" for i=1:L]
+    return MPS(indices, state)
 end
 function allonemps(d::Integer, L::Integer)
      indices = siteinds("Boson", L; dim = d)
@@ -55,10 +52,9 @@ function allonemps(d::Integer, L::Integer)
 end
 
 function allzeromps(indices::Vector{Index{Int64}})
-    d = dim(indices[1])
     L = length(indices)
-    stateVector = Vector(allzero(d, L))
-    return MPS(stateVector, indices)
+    state = ["0" for i=1:L]
+    return MPS(indices, state)
 end
 function allzeromps(d::Integer, L::Integer)
      indices = siteinds("Boson", L; dim = d)
