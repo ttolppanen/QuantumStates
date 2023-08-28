@@ -8,6 +8,7 @@
     @test zeroone(2, 2)' * onezero(2, 2) == 0.0
     @test onezero(3, 4)' * allone(3, 4) == 0.0
     @test bosonstack(4, 4, 2)' * bosonstack(4, 4, 1) == 0.0
+    @test productstate(4, [0, 1, 3])' * productstate(4, [2, 1, 3]) == 0.0
 end
 
 @testset "Normalization" begin
@@ -18,6 +19,7 @@ end
     @test norm(allzero(d, L)) == 1.0
     @test norm(singleone(d, L, 2)) == 1.0
     @test norm(bosonstack(3, L, 1)) == 1.0
+    @test norm(productstate(3, [1, 0, 2, 1, 0])) == 1.0
 end
 
 @testset "Dimension" begin
@@ -28,6 +30,7 @@ end
     @test length(allzero(d, L)) == d^L
     @test length(singleone(d, L, 1)) == d^L
     @test length(bosonstack(d - 1, L, 1)) == d^L
+    @test length(productstate(d, [1 for _ in 1:L])) == d^L
 end
 
 function testtypes(state)
@@ -42,6 +45,7 @@ end
     @testset "allzero" begin testtypes(allzero(d, L)) end
     @testset "singleone" begin testtypes(singleone(d, L, 1)) end
     @testset "bosonstack" begin testtypes(bosonstack(d - 1, L, 1)) end
+    @testset "productstate" begin testtypes(productstate(d, [0, 1, 0, 1])) end
 end
 
 @testset "Errors" begin

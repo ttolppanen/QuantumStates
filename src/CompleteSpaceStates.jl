@@ -6,6 +6,7 @@ export allone
 export allzero
 export singleone
 export bosonstack
+export productstate
 
 # d : dimension; e.g. with qubits d = 2
 # L : number of systems;
@@ -63,5 +64,13 @@ function bosonstack(N::Integer, L::Integer, i::Integer; d::Integer = N + 1)
     stack[N + 1] = 1.0
     sites = [zero for _ in 1:L]
     sites[i] = stack
+    return kron(sites...)
+end
+
+function productstate(d::Integer, state::AbstractVector{<:Integer})
+    sites = [complex(spzeros(d)) for _ in state]
+    for (i, val) in enumerate(state)
+        sites[i][val + 1] = 1.0
+    end
     return kron(sites...)
 end
