@@ -16,7 +16,7 @@
     H = bosehubbard(d, L; w = w / J, U = 0, J = 0)
     rho_T = thermal_state(diag(H), T * T_scale)
 
-    N = 100000
+    N = 1000000
     n_op = nall(d, L)
     out = []
     for _ in 1:N

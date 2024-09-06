@@ -6,5 +6,5 @@ using QuantumOperators
 using Statistics
 
 include("CSStests.jl")
-# include("MPStests.jl")
+include("MPStests.jl")
 include("DensityOperatortests.jl")
