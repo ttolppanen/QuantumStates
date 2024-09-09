@@ -2,7 +2,14 @@
 # using SparseArrays
 
 @testset "Complete Space" begin
-    
+
+function thermal_state(d, L)
+    w = 7.5 * 10^9 * 2 * pi
+    U = 50 / 1000 * w
+    T = 0.1
+    sample_transmon_thermal_state(d, L, T, w, U)
+end
+
 @testset "Orthogonality" begin
     @test QuantumStates.zerostate(3)' * QuantumStates.onestate(3) == 0.0
     @test zeroone(2, 2)' * onezero(2, 2) == 0.0
@@ -20,6 +27,7 @@ end
     @test norm(singleone(d, L, 2)) == 1.0
     @test norm(bosonstack(3, L, 1)) == 1.0
     @test norm(productstate(3, [1, 0, 2, 1, 0])) == 1.0
+    @test norm(thermal_state(d, L)) == 1.0
 end
 
 @testset "Dimension" begin
@@ -31,6 +39,7 @@ end
     @test length(singleone(d, L, 1)) == d^L
     @test length(bosonstack(d - 1, L, 1)) == d^L
     @test length(productstate(d, [1 for _ in 1:L])) == d^L
+    @test length(thermal_state(d, L)) == d^L
 end
 
 function testtypes(state)
@@ -46,6 +55,7 @@ end
     @testset "singleone" begin testtypes(singleone(d, L, 1)) end
     @testset "bosonstack" begin testtypes(bosonstack(d - 1, L, 1)) end
     @testset "productstate" begin testtypes(productstate(d, [0, 1, 0, 1])) end
+    @testset "thermal state" begin testtypes(thermal_state(d, L)) end
 end
 
 @testset "Errors" begin

@@ -7,4 +7,4 @@ using Statistics
 
 include("CSStests.jl")
 include("MPStests.jl")
-include("DensityOperatortests.jl")
+include("ThermalState.jl")
