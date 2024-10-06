@@ -106,5 +106,8 @@ end
 function sample_transmon_thermal_state(d, L, T, w, U; kwargs...)
     # sample a single site state
     s_s() = sample_transmon_thermal_state(d, T, w, U; kwargs...)
+    if L == 1
+        return s_s()
+    end
     return kron([s_s() for _ in 1:L]...)
 end
