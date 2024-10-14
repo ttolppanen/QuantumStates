@@ -77,6 +77,11 @@ function productstate(d::Integer, state::AbstractVector{<:Integer})
 end
 
 function sample_transmon_thermal_state(d, T, w, U; err = 10^-10)
+    if T == 0.0
+        state = complex(spzeros(d))
+        state[1] = 1.0
+        return state
+    end
     kb = 1.3806 * 10^-23
     hbar = 1.0546 * 10^-34
     exp_val(n) = exp(-hbar * (w * n - U / 2 * n * (n - 1)) / (kb * T))
