@@ -2,7 +2,6 @@ module QuantumStates
 
 using SparseArrays
 using ITensors
-using ITensorMPS
 using LinearAlgebra
 
 include("CompleteSpaceStates.jl")
