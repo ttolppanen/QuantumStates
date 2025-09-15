@@ -2,7 +2,7 @@ using QuantumStates, Test
 using LinearAlgebra
 using SparseArrays
 using ITensors
-using QuantumOperators
+using ITensorMPS
 using Statistics
 
 include("CSStests.jl")
